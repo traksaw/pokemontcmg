@@ -1,0 +1,92 @@
+* {
+    font-family: "Press Start 2P", system-ui;
+
+}
+
+body {
+    background-image: url(../assets/background-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    width: 100%;
+}
+#game {
+    display: grid;
+    grid-template-columns: repeat(4, 160px);
+    grid-template-rows: repeat(4, 160px);
+    gap: 10px;
+}
+.card {
+    box-shadow: 0 3px 10px rgba(200,200,200,0.9);
+    border-radius: 10px;
+    font-size: 10px;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+}
+.front, .back {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    backface-visibility: hidden;
+    transition:0.5ms;
+}
+.front {
+    background-image: url(../assets/back-img.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: black;
+}
+.rotated {
+    transform: rotateY(180deg);
+}
+button {
+    font-size:18px;
+    background-color: #c62828;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 375px){
+    #game {
+        display: grid;
+        grid-template-columns: repeat(2, 160px);
+        grid-template-rows: repeat(4, 160px);
+        gap: 10px;
+    }
+    
+}
+@media screen and (max-width: 430px){
+    #game {
+        display: grid;
+        grid-template-columns: repeat(2, 160px);
+        grid-template-rows: repeat(8, 160px);
+        gap: 10px;
+    }
+    #title {
+        display: none;
+    }
+    
+}
